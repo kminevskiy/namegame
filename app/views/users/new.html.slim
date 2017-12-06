@@ -1,0 +1,6 @@
+= render "shared/page_title", title: "Register"
+
+- if @user.errors.any?
+  //= render "shared/errors", errors: @user.errors
+
+= render "form", user: @user

@@ -1,0 +1,21 @@
+= render "shared/page_title", title: "Round #{game.finished_rounds + 1} of #{game.rounds}"
+
+h3 id="game-title" Current Score:
+    #{game.score}
+
+- if game.time_limit
+    h3 id="countdown" Time Remaining:
+        #{countdown Time.now + 30.seconds}
+
+- people_names = game_data.map do |person|
+        - full_name = person[:firstName] + " " + person[:lastName]
+        - [full_name, person[:id]]
+
+- selected_person = people_names.sample
+
+= form_tag({controller: 'games', action: 'submit'}, class: 'play-submit-form') do
+    - game_data.each do |person|
+        = image_submit_tag(person[:headshot][:url], name: "person[#{person[:id]}##{selected_person[1]}]")
+
+h4 id="game-question" Who is
+    #{selected_person[0]}?

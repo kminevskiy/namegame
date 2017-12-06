@@ -1,0 +1,7 @@
+- if @game.finished_rounds != 0 && @game.game_rules != 'learn'
+    = render "shared/flash_message"
+
+- if @game.game_rules == 'learn'
+    = render "learn_game", game: @game, game_data: game_data
+- else
+    = render "game", game: @game, game_data: game_data

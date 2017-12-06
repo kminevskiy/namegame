@@ -1,0 +1,14 @@
+= render "shared/flash_message"
+
+= render "shared/page_title", title: "Game Result"
+
+div id="game-stats"
+    ul id="game-stats-list"
+        li.game-info Rules: #{game[:game_rules]}
+        li.game-info Score: #{game[:score]}
+        li.game-info Total Rounds: #{game[:rounds]}
+        li.game-info Completed Rounds: #{game[:finished_rounds]}
+        li.game-info Correct Answers: #{game[:score] / 2} / #{game[:rounds]}
+    
+    div id="return-button"
+        = link_to "Back to Leaderboards", users_path

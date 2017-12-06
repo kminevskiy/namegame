@@ -1,0 +1,5 @@
+= form_tag "/games", class: "game_options_form" do
+  = hidden_field_tag(:game_type, params[:game_type])
+  = label_tag 'rounds[total]', "Rounds"
+  = number_field(:rounds, :total, in: 1..10, step: 1)
+  = submit_tag "Start Game"

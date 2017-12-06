@@ -1,0 +1,3 @@
+div id="game-links-container"
+    -   %w(team practice matt everyone learn).each do |mode|
+        = link_to mode.titleize, new_game_path(game_type: mode), class: 'game-link'

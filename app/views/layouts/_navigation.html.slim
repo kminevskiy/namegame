@@ -1,0 +1,10 @@
+- if current_user
+    ul id="top-nav"
+        li.nav-button = link_to 'USERS', users_path, class: 'users'
+        li.nav-button = link_to 'GAMES', games_path, class: 'games'
+        li.nav-button.e = link_to 'PROFILE', logged_in_user, class: 'username'
+        li.nav-button = link_to 'LOGOUT', logout_path, method: :delete, class: 'logout'
+- else
+    - if current_path == 'users'
+        ul id="top-nav"
+            li.nav-button = link_to 'LOGIN', login_path, class: 'logout'

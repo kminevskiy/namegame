@@ -1,0 +1,11 @@
+= render "shared/flash_message"
+
+= render "shared/page_title", title: "Leaderboard"
+
+- if @users.any?
+    div id="top-users"
+        ul
+            - @users.each do |user|
+                = render "user", user: user
+- else
+    = render "shared/empty_section_stub", stub: :users
